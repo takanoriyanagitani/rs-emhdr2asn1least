@@ -1,0 +1,15 @@
+EmailHeaderLeast DEFINITIONS ::=
+BEGIN
+
+  ShortString ::= UTF8String (SIZE(0..127))
+
+  UnixtimeInt64LE ::= OCTET STRING (SIZE(8))
+
+  LeastHeaderInfo ::= SEQUENCE {
+	  from    [0] IMPLICIT ShortString,
+	  to1st   [1] IMPLICIT ShortString,
+	  subject [2] IMPLICIT ShortString,
+	  date    [3] IMPLICIT UnixtimeInt64LE
+  }
+
+END

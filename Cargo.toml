@@ -1,0 +1,38 @@
+[package]
+name = "rs-emhdr2asn1least"
+version = "0.1.0"
+edition = "2024"
+
+exclude = [
+]
+
+[lints.rust]
+unsafe_code = "forbid"
+
+[lints.clippy]
+unwrap_used = "deny"
+expect_used = "deny"
+panic = "deny"
+
+[profile.release-wasi]
+inherits = "release"
+lto = true
+strip = true
+opt-level = 's'
+codegen-units = 1
+
+[dependencies.clap]
+version = "4"
+default-features = true
+features = [
+    "std",
+    "derive",
+    "help",
+    "usage",
+]
+
+[dependencies.mailparse]
+version = "0.16"
+default-features = false
+features = [
+]
